@@ -1,4 +1,4 @@
-<?php helper('url'); ?>
+<?php helper(['url', 'security']); ?>
 
 <!DOCTYPE html>
 <html>
@@ -6,6 +6,11 @@
     <title>User Accounts</title>
 </head>
 <body>
+
+<form action="<?= site_url('logout') ?>" method="post">
+    <?= csrf_field() ?>
+    <button type="submit">Log Out</button>
+</form>
 
 <h1>User Accounts</h1>
 
@@ -43,9 +48,7 @@
             </td>
 
             <td><?= esc($user['username']) ?></td>
-
             <td><?= esc($user['full_name']) ?></td>
-
             <td><?= esc($user['role'] ?? '') ?></td>
 
             <td>

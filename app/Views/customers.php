@@ -1,4 +1,4 @@
-<?php helper('url'); ?>
+<?php helper(['url', 'security']); ?>
 
 <!DOCTYPE html>
 <html>
@@ -6,6 +6,11 @@
     <title>Customer Accounts</title>
 </head>
 <body>
+
+<form action="<?= site_url('logout') ?>" method="post">
+    <?= csrf_field() ?>
+    <button type="submit">Log Out</button>
+</form>
 
 <h1>Customer Accounts</h1>
 
